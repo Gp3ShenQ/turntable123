@@ -1,0 +1,254 @@
+// @font-face 
+// 	font-family: 'AstoriaExtraBold'
+// 	src: url('./img/font/AstoriaExtraBold.ttf') format("truetype")
+
+// *
+// 	font-family: 'AstoriaExtraBold'
+// 	// border: solid 1px white
+
+// @font-face 
+// 	font-family: 'AstoriaExtraBold'
+// 	src: url('./img/font/AstoriaExtraBold.ttf') format("truetype")
+
+// *
+// 	font-family: 'AstoriaExtraBold'
+// 	// border: solid 1px white
+
+
+
+@font-face 
+	font-family: 'zAstoriaBold'
+	src: url('./img/font/zAstoriaBold.ttf') format("truetype")
+
+*
+	font-family: 'zAstoriaBold'
+	// border: solid 1px white
+
+
+
+
+
+
+
+
+
+
+
+@mixin whsize($num1, $num2) 
+	width: $num1
+	height: $num2
+
+@mixin flexCenter()
+	display: flex
+	align-items: center
+	justify-content: center
+
+@mixin abCenter()
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50% , -50%)
+
+@mixin fontsArial($size)
+	font-family: Arial
+	font-weight: 400
+	font-size: $size
+
+body
+	margin: 0
+	padding: 0
+//燈箱背景遮罩
+.turntableAll   
+	position: fixed
+	background-color: white
+	+whsize(100%,100vh)
+.turntableMask
+	position: absolute
+	opacity: .6
+	background-color: #000
+	+whsize(100%,100%)
+
+//燈箱背景圖片
+.turntableArea
+	position: relative
+	top: 0
+	left: 0
+	height: 100%
+.turntableBg
+	position: relative
+	height: 100%	
+	+flexCenter
+	img
+		+whsize(430px,712px)
+
+//燈箱頂部圖片
+.turntableBox
+	+abCenter
+	+whsize(430px,712px)
+.turntableTop 
+	+whsize(100%,207px)
+	img
+		// position: absolute
+		top: 0
+		+whsize(430px,207px)
+
+//燈頂部文字
+.turntableText
+	position: absolute
+	top: 0
+	left: 0
+	p
+		margin: 0
+		font-size: 56px
+		text-align: center
+		font-weight: 700
+		+whsize(294px,65px)
+		&:nth-child(1)
+			margin: 41px 68px 0 68px
+			color: white
+			background: linear-gradient(180deg, #E5D9FA 0%, #B393EE 100%)
+			background-clip: text
+			-webkit-background-clip: text
+			-webkit-text-fill-color: transparent
+		&:nth-child(2)
+			margin: 0 68px
+			background: linear-gradient(180deg, #FFB217 0%, #FFD65F 100%)
+			background-clip: text
+			-webkit-background-clip: text
+			-webkit-text-fill-color: transparent
+
+//中間輪盤
+.turntableMiddle
+	position: relative
+	margin: -35px 42px 0 49px
+	+whsize(339px,339px)
+	img
+		+abCenter
+	.turntableButton
+		img
+			cursor: pointer
+	.turntableArrow
+		img
+			top: 12px
+.turntableColor
+	border: solid 1px white
+	height: 100%
+	width: 100%
+.innerNumber
+	+whsize(50%,120px)
+	span
+		// box-sizing: border-box
+		// position: absolute
+		height: 50%	
+		width: 90px
+//中間按鈕
+.turntableMiddleButton
+	flex-shrink: 0
+	margin: 17px 85px 0 104px
+	cursor: pointer
+	+whsize(241px,47px)
+.buttonBox
+	background-color: #CA1681
+	border-radius: 9px
+	+whsize(100%,100%)
+	p
+		color: #fff
+		font-size: 14px
+		font-weight: 700
+		text-align: center
+		line-height: 47px
+//底部資料顯示箱
+.turntableBottom
+	display: flex
+	border-radius: 5px
+	margin: 21px 15px 0 19px
+	border: 1px solid #000
+	background: #151617
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
+	+whsize(396px,99px)
+//底部箱左側資料
+.bottomLeft
+	position: relative
+	flex-shrink: 0
+	margin: 3px 5px 4px 5px
+	border-radius: 5px
+	background: #191A1B
+	+whsize(161px,92px)
+	p
+		&:nth-child(1)
+			font-size: 16px
+			font-weight: 700
+			text-align: center
+			margin: 27px 21px 2px 22px
+			color: #777777
+			+whsize(118px,19px)
+		&:nth-child(2)
+			text-align: center
+			color: #E9D317
+			font-size: 18px
+			font-weight: 700
+			margin-top: 0
+//底部箱右側資料
+.bottomRight
+	display: flex
+	flex-shrink: 0
+	margin: 3px 4px 4px 0
+	border-radius: 5px
+	overflow: hidden
+	+whsize(221px,92px)
+//頭像顯示
+.bottomAvatar
+	width: 44px
+	background: #191A1B
+.avatarBox
+	border-radius: 100%
+	overflow: hidden
+	margin: 16px 0 0 14px
+	+whsize(31px,31px)
+	img
+		+whsize(100%,100%)
+//資料顯示
+.bottomData 
+	width: 152px
+	background-color: #191A1B
+	padding: 13px 0 0 14px 
+.nameData
+	p
+		color: #8B99BB
+		margin: 0
+		+fontsArial(16px)
+.prizeData
+	display: flex
+	margin-top: 7px
+	p
+		margin: 0
+		+fontsArial(14px)
+		&:nth-child(1)
+			color: #777
+		&:nth-child(2)
+			color: #37D775
+		&:nth-child(3)
+			color: #fff
+.spinData
+	display: flex
+	margin-top: 6px
+	p
+		margin: 0
+		+fontsArial(14px)
+		&:nth-child(1)
+			color: #777
+		&:nth-child(2)
+			color: #E452A8
+//右側icon
+.bottomIcon
+	background: #191A1B
+	width: 28px
+.arrowIcon
+	margin: 38px 6px 0 0 
+	cursor: pointer
+	+whsize(18px,18px)
+	img
+		+whsize(100%,100%)
+
+
+

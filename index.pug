@@ -1,0 +1,75 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(rel="stylesheet", href="./index.css")
+		script(defer src="./index.js") 
+		title 輪盤
+	body 
+		.turntableAll
+			//-燈箱背景遮罩
+			.turntableMask
+			//-燈箱背景圖片
+			.turntableArea
+				.turntableBg
+					img(src="./img/spin_bg.png", alt="")
+				//-燈箱頂部圖片
+				.turntableBox
+					.turntableTop 
+						img(src="./img/spin_head.png", alt="")
+						//-燈頂部文字
+						.turntableText 
+							p Spin to win 
+							p 500USDT
+					//-中間輪盤
+					.turntableMiddle
+						//-彩色輪盤
+						.turntableColor
+							.innerNumber
+								span 123333
+							//- img(src="./img/bg_lottery_10.png", alt="")
+						//-外框
+						.turntableCircle
+							img(src="./img/spin_bg_line.png", alt="")  
+						//-閃燈
+						.turntableLight
+							img(src="./img/spin_light.png", alt="")
+						//-星星按鈕
+						.turntableButton
+							img(src="./img/btn_lottery.png", alt="")
+						//-箭頭
+						.turntableArrow
+							img(src="./img/icon_point.png", alt="")
+					//-中間按鈕
+					.turntableMiddleButton
+						.buttonBox
+							p SPIN NOW
+					//-底部資料顯示箱
+					.turntableBottom 
+						//-底部箱左側資料
+						.bottomLeft
+							p spin bonus total
+							p $1,331,052,502.04
+						//-底部箱右側資料
+						.bottomRight
+							//-頭像顯示
+							.bottomAvatar
+								.avatarBox 
+									img(src="./img/image (7).png", alt="")
+							//-資料顯示
+							.bottomData 
+								.nameData
+									p mgezavi
+								.prizeData
+									p Win:
+									p 23.3
+									p DOGE
+								.spinData 
+									p in:
+									p LUCKY SPIN
+							//-右側icon
+							.bottomIcon
+								.arrowIcon 
+									img(src="./img/arrow 1icon_arrow.svg", alt="")
+								
