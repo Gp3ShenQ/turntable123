@@ -1,20 +1,3 @@
-// @font-face 
-// 	font-family: 'AstoriaExtraBold'
-// 	src: url('./img/font/AstoriaExtraBold.ttf') format("truetype")
-
-// *
-// 	font-family: 'AstoriaExtraBold'
-// 	// border: solid 1px white
-
-// @font-face 
-// 	font-family: 'AstoriaExtraBold'
-// 	src: url('./img/font/AstoriaExtraBold.ttf') format("truetype")
-
-// *
-// 	font-family: 'AstoriaExtraBold'
-// 	// border: solid 1px white
-
-
 
 @font-face 
 	font-family: 'zAstoriaBold'
@@ -22,16 +5,6 @@
 
 *
 	font-family: 'zAstoriaBold'
-	// border: solid 1px white
-
-
-
-
-
-
-
-
-
 
 
 @mixin whsize($num1, $num2) 
@@ -53,6 +26,12 @@
 	font-family: Arial
 	font-weight: 400
 	font-size: $size
+
+@keyframes light
+	0%
+		opacity: 0
+	100%
+		opacity: 1
 
 body
 	margin: 0
@@ -88,7 +67,6 @@ body
 .turntableTop 
 	+whsize(100%,207px)
 	img
-		// position: absolute
 		top: 0
 		+whsize(430px,207px)
 
@@ -124,23 +102,57 @@ body
 	+whsize(339px,339px)
 	img
 		+abCenter
-	.turntableButton
-		img
-			cursor: pointer
-	.turntableArrow
-		img
-			top: 12px
-.turntableColor
-	border: solid 1px white
-	height: 100%
+.lottery-wrap
+	position: relative
 	width: 100%
-.innerNumber
-	+whsize(50%,120px)
-	span
-		// box-sizing: border-box
-		// position: absolute
-		height: 50%	
-		width: 90px
+	height: 100%
+	span 
+		box-sizing: border-box
+		position: absolute
+		top: 39px
+		left: 35%
+		width: 100px
+		height: 130px
+		-webkit-transform-origin: 50% 100%
+		-moz-transform-origin: 50% 100%
+		-ms-transform-origin: 50% 100%
+		transform-origin: 50% 100%
+		z-index: 1
+			
+		//物件包數量更變
+		$dataTotal: 10
+		@for $i from $dataTotal through 1
+			&.lottery-span#{$i}
+				$angle: 360 / $dataTotal * $i
+				transform: rotate($angle + deg)
+
+	i 
+		display: block
+		margin-top: 8px
+		width: 100%
+		height: 30px
+		line-height: 40px
+		font-weight: 100
+		font-style: normal
+		font-size: 24px
+		color: white
+		text-shadow: 0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,
+		// -webkit-text-stroke: 2px #730BF9
+		transform: rotateZ(-90deg)
+
+.turntableButton
+	img
+		z-index: 2
+		cursor: pointer
+.turntableArrow
+	img
+		z-index: 2
+		top: 12px
+.turntableLight
+	img
+		&:nth-child(2)
+			animation: light .5s infinite
+
 //中間按鈕
 .turntableMiddleButton
 	flex-shrink: 0
@@ -249,6 +261,3 @@ body
 	+whsize(18px,18px)
 	img
 		+whsize(100%,100%)
-
-
-

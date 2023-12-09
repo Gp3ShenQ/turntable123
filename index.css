@@ -6,6 +6,23 @@
   font-family: "zAstoriaBold";
 }
 
+@-webkit-keyframes light {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes light {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 body {
   margin: 0;
   padding: 0;
@@ -115,26 +132,92 @@ body {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
-.turntableMiddle .turntableButton img {
+
+.lottery-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.lottery-wrap span {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  top: 39px;
+  left: 35%;
+  width: 100px;
+  height: 130px;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  z-index: 1;
+}
+.lottery-wrap span.lottery-span10 {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+.lottery-wrap span.lottery-span9 {
+  -webkit-transform: rotate(324deg);
+          transform: rotate(324deg);
+}
+.lottery-wrap span.lottery-span8 {
+  -webkit-transform: rotate(288deg);
+          transform: rotate(288deg);
+}
+.lottery-wrap span.lottery-span7 {
+  -webkit-transform: rotate(252deg);
+          transform: rotate(252deg);
+}
+.lottery-wrap span.lottery-span6 {
+  -webkit-transform: rotate(216deg);
+          transform: rotate(216deg);
+}
+.lottery-wrap span.lottery-span5 {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.lottery-wrap span.lottery-span4 {
+  -webkit-transform: rotate(144deg);
+          transform: rotate(144deg);
+}
+.lottery-wrap span.lottery-span3 {
+  -webkit-transform: rotate(108deg);
+          transform: rotate(108deg);
+}
+.lottery-wrap span.lottery-span2 {
+  -webkit-transform: rotate(72deg);
+          transform: rotate(72deg);
+}
+.lottery-wrap span.lottery-span1 {
+  -webkit-transform: rotate(36deg);
+          transform: rotate(36deg);
+}
+.lottery-wrap i {
+  display: block;
+  margin-top: 8px;
+  width: 100%;
+  height: 30px;
+  line-height: 40px;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 24px;
+  color: white;
+  text-shadow: 0px 0px 2px #730BF9, 0px 0px 2px #730BF9, 0px 0px 2px #730BF9, 0px 0px 2px #730BF9, 0px 0px 2px #730BF9, 0px 0px 2px #730BF9, 0px 0px 2px #730BF9, 0px 0px 2px #730BF9, 0px 0px 2px #730BF9, 0px 0px 2px #730BF9, 0px 0px 2px #730BF9;
+  -webkit-transform: rotateZ(-90deg);
+          transform: rotateZ(-90deg);
+}
+
+.turntableButton img {
+  z-index: 2;
   cursor: pointer;
 }
-.turntableMiddle .turntableArrow img {
+
+.turntableArrow img {
+  z-index: 2;
   top: 12px;
 }
 
-.turntableColor {
-  border: solid 1px white;
-  height: 100%;
-  width: 100%;
-}
-
-.innerNumber {
-  width: 50%;
-  height: 120px;
-}
-.innerNumber span {
-  height: 50%;
-  width: 90px;
+.turntableLight img:nth-child(2) {
+  -webkit-animation: light 0.5s infinite;
+          animation: light 0.5s infinite;
 }
 
 .turntableMiddleButton {
