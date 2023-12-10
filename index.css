@@ -135,64 +135,25 @@ body {
 
 .lottery-wrap {
   position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
 }
 .lottery-wrap span {
+  z-index: 2;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: absolute;
-  top: 39px;
-  left: 35%;
-  width: 100px;
+  top: 38px;
+  left: 128px;
+  width: 80px;
   height: 130px;
   -webkit-transform-origin: 50% 100%;
   transform-origin: 50% 100%;
-  z-index: 1;
-}
-.lottery-wrap span.lottery-span10 {
-  -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
-}
-.lottery-wrap span.lottery-span9 {
-  -webkit-transform: rotate(324deg);
-          transform: rotate(324deg);
-}
-.lottery-wrap span.lottery-span8 {
-  -webkit-transform: rotate(288deg);
-          transform: rotate(288deg);
-}
-.lottery-wrap span.lottery-span7 {
-  -webkit-transform: rotate(252deg);
-          transform: rotate(252deg);
-}
-.lottery-wrap span.lottery-span6 {
-  -webkit-transform: rotate(216deg);
-          transform: rotate(216deg);
-}
-.lottery-wrap span.lottery-span5 {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-.lottery-wrap span.lottery-span4 {
-  -webkit-transform: rotate(144deg);
-          transform: rotate(144deg);
-}
-.lottery-wrap span.lottery-span3 {
-  -webkit-transform: rotate(108deg);
-          transform: rotate(108deg);
-}
-.lottery-wrap span.lottery-span2 {
-  -webkit-transform: rotate(72deg);
-          transform: rotate(72deg);
-}
-.lottery-wrap span.lottery-span1 {
-  -webkit-transform: rotate(36deg);
-          transform: rotate(36deg);
 }
 .lottery-wrap i {
   display: block;
-  margin-top: 8px;
+  margin-top: 14px;
   width: 100%;
   height: 30px;
   line-height: 40px;
@@ -205,6 +166,18 @@ body {
           transform: rotateZ(-90deg);
 }
 
+.turntableColor {
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-position: center center;
+}
+
 .turntableButton img {
   z-index: 2;
   cursor: pointer;
@@ -215,6 +188,13 @@ body {
   top: 12px;
 }
 
+.turntableCircle img {
+  z-index: 2;
+}
+
+.turntableLight img {
+  z-index: 2;
+}
 .turntableLight img:nth-child(2) {
   -webkit-animation: light 0.5s infinite;
           animation: light 0.5s infinite;

@@ -1,3 +1,4 @@
+@use "sass:math"
 
 @font-face 
 	font-family: 'zAstoriaBold'
@@ -104,31 +105,31 @@ body
 		+abCenter
 .lottery-wrap
 	position: relative
-	width: 100%
-	height: 100%
+	z-index: 1
+	+whsize(100%,100%)
 	span 
+		z-index: 2
 		box-sizing: border-box
 		position: absolute
-		top: 39px
-		left: 35%
-		width: 100px
-		height: 130px
+		top: 38px
+		left: 128px
+		+whsize(80px,130px)
 		-webkit-transform-origin: 50% 100%
 		-moz-transform-origin: 50% 100%
 		-ms-transform-origin: 50% 100%
 		transform-origin: 50% 100%
-		z-index: 1
 			
 		//物件包數量更變
-		$dataTotal: 10
-		@for $i from $dataTotal through 1
-			&.lottery-span#{$i}
-				$angle: 360 / $dataTotal * $i
-				transform: rotate($angle + deg)
+		// $dataTotal: calc( var(--data) / 1px)
+		// $dataTotal: var(--data)
+		// @for $i from $dataTotal through 1
+		// 	&.lottery-span#{$i}
+		// 		$angle: 360 / $dataTotal * $i
+		// 		transform: rotate($angle + deg)
 
 	i 
 		display: block
-		margin-top: 8px
+		margin-top: 14px
 		width: 100%
 		height: 30px
 		line-height: 40px
@@ -137,8 +138,13 @@ body
 		font-size: 24px
 		color: white
 		text-shadow: 0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,
-		// -webkit-text-stroke: 2px #730BF9
 		transform: rotateZ(-90deg)
+
+.turntableColor
+	background-repeat: no-repeat
+	+whsize(100%,100%)
+	+abCenter
+	background-position: center center
 
 .turntableButton
 	img
@@ -148,8 +154,13 @@ body
 	img
 		z-index: 2
 		top: 12px
+.turntableCircle
+	img
+		z-index: 2
+
 .turntableLight
 	img
+		z-index: 2
 		&:nth-child(2)
 			animation: light .5s infinite
 
