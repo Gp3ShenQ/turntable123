@@ -1,17 +1,18 @@
 
 //轉盤資料包
 const data = [
-	{'amount':'100.00'},
-	{'amount':'200.00'},
-	{'amount':'300.00'},
-	{'amount':'400.00'},
-	{'amount':'500.00'},
-	{'amount':'600.00'},
-	{'amount':'700.00'},
-	{'amount':'800.00'},
-	{'amount':'900.00'},
-	{'amount':'1000.00'},
+	{'amount':'100.00', 'Currency':'BNB'},
+	{'amount':'200.00', 'Currency':'BUSD'},
+	{'amount':'300.00', 'Currency':'BTC'},
+	{'amount':'400.00', 'Currency':'ETH'},
+	{'amount':'500.00', 'Currency':'DOGE'},
+	{'amount':'600.00', 'Currency':'SOL'},
+	{'amount':'700.00', 'Currency':'AVAX'},
+	{'amount':'800.00', 'Currency':'LUNA'},
+	{'amount':'900.00', 'Currency':'SHIB'},
+	{'amount':'1000.00', 'Currency':'ADA'},
 ];
+
 
 var _createClass = (function () { 
 	function defineProperties(target, props) { 

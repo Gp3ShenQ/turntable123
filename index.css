@@ -89,6 +89,26 @@
     text-shadow: 0 0 5px #730BF9, 0 0 5px #730BF9, 0 0 5px #730BF9, 0 0 5px #730BF9, 0 0 5px #730BF9, 0 0 5px #730BF9, 0 0 5px #730BF9, 0 0 5px #730BF9;
   }
 }
+@-webkit-keyframes turn {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes turn {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
 body {
   margin: 0;
   padding: 0;
@@ -464,39 +484,72 @@ body {
 .amountMask {
   position: fixed;
   position: absolute;
-  opacity: 0.6;
+  opacity: 0.8;
   background-color: #000;
   width: 100%;
   height: 100vh;
 }
 
 .amountArea {
-  border: solid 1px white;
   position: relative;
   width: 100%;
   height: 100%;
 }
 
 .goldLight {
-  opacity: 0.9;
+  opacity: 0.6;
+  width: 549px;
+  height: 571px;
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 549px;
-  height: 571px;
 }
 .goldLight img {
+  -webkit-animation: turn 10s linear infinite;
+          animation: turn 10s linear infinite;
   width: 100%;
   height: 100%;
 }
 
 .goldBg {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.goldData {
+  border: solid 2px white;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 0;
+  color: white;
+  width: 100%;
+  height: 100%;
+}
+.goldData p {
+  font-family: Inter;
+  font-size: 64px;
+  font-weight: 900;
+  color: #FEF371;
+  -webkit-background-clip: text;
+          background-clip: text;
+  text-shadow: 2px 2px 0px #C55B1A;
+}
+
+.goldCoin {
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+}
+.goldCoin img {
+  width: 549px;
+  height: 571px;
 }
