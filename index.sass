@@ -1,4 +1,4 @@
-@use "sass:math"
+// @use "sass:math"
 
 @font-face 
 	font-family: 'zAstoriaBold'
@@ -31,8 +31,30 @@
 @keyframes light
 	0%
 		opacity: 0
-	100%
+	to
 		opacity: 1
+
+@keyframes arrowEnd
+	0%
+		transform: scale(1)
+		top: -5px
+		left: 155px
+	35%
+		transform: scale(1.3)
+		top: -15px
+		left: 155px
+	to
+		transform: scale(1)
+		top: -5px
+		left: 155px
+
+@keyframes scaleText 
+	0% 
+		transform: scale(1) rotate(-90deg)
+		// text-shadow:  #730BF9
+	to
+		transform: scale(1.1) rotate(-90deg)
+		text-shadow: 0 0 5px #730BF9,0 0 5px #730BF9,0 0 5px #730BF9,0 0 5px #730BF9,0 0 5px #730BF9,0 0 5px #730BF9,0 0 5px #730BF9,0 0 5px #730BF9,
 
 body
 	margin: 0
@@ -40,7 +62,6 @@ body
 //燈箱背景遮罩
 .turntableAll   
 	position: fixed
-	background-color: white
 	+whsize(100%,100vh)
 .turntableMask
 	position: absolute
@@ -111,21 +132,13 @@ body
 		z-index: 2
 		box-sizing: border-box
 		position: absolute
-		top: 38px
-		left: 128px
+		top: 39px
+		left: 130px
 		+whsize(80px,130px)
 		-webkit-transform-origin: 50% 100%
 		-moz-transform-origin: 50% 100%
 		-ms-transform-origin: 50% 100%
 		transform-origin: 50% 100%
-			
-		//物件包數量更變
-		// $dataTotal: calc( var(--data) / 1px)
-		// $dataTotal: var(--data)
-		// @for $i from $dataTotal through 1
-		// 	&.lottery-span#{$i}
-		// 		$angle: 360 / $dataTotal * $i
-		// 		transform: rotate($angle + deg)
 
 	i 
 		display: block
@@ -140,12 +153,14 @@ body
 		text-shadow: 0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,
 		transform: rotateZ(-90deg)
 
+.scaleText 
+	animation: scaleText .6s infinite
+
 .turntableColor
 	background-repeat: no-repeat
+	background-position: center center
 	+whsize(100%,100%)
 	+abCenter
-	background-position: center center
-
 .turntableButton
 	img
 		z-index: 2
@@ -154,10 +169,12 @@ body
 	img
 		z-index: 2
 		top: 12px
+		&.arrowEnd
+			transform: scale(1.2)
+			animation: arrowEnd 1s infinite
 .turntableCircle
 	img
 		z-index: 2
-
 .turntableLight
 	img
 		z-index: 2

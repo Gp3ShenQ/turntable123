@@ -11,12 +11,6 @@ const data = [
 	{amount:'800.00'},
 	{amount:'900.00'},
 	{amount:'1000.00'},
-	// {amount:11},
-	// {amount:12},
-	// {amount:13},
-	// {amount:14},
-	// {amount:15},
-	// {amount:16},
 ];
 
 var _createClass = (function () { 
@@ -50,15 +44,16 @@ function _classCallCheck(instance, Constructor) {
 				return Math.random()*(max-min+1)+min
 			} // 旋轉偏移亂數生成
 			this.opts = Object.assign({
-				target: '.lottery-wrap', // 旋转对象
-				easing: 'easeInOutSine', // anime.js 动画曲线
-				isplay: false, // 动画是否在播放
-				duration: 3000, // 动画时长
-				rotateNum: 5, // 旋转圈数
-				total: data.length, // 奖励个数
-				offset: Math.floor(getRandom(-5,(360 / data.length) * (-1) + 5)) }, // 旋转偏移值
+				target: '.lottery-wrap', // 旋轉對象
+				easing: 'easeInOutSine', // anime.js 動畫曲線
+				isplay: false, // 動畫是否再撥放
+				duration: 3000, // 動畫時長
+				rotateNum: 5, // 旋轉圈數
+				total: data.length, // 獎勵資料DATA
+				offset: (dataLen === 6 ? -29 : 0) + (dataLen === 8 ? -22 : 0) + (dataLen === 10 ? -18 : 0)
+			},
 				opts);
-			this.opts.angle = 360 / this.opts.total; // 旋转角度
+			this.opts.angle = 360 / this.opts.total; // 旋轉角度
 		}
 		
 		_createClass(Turntable, [{
@@ -138,8 +133,11 @@ function getTurntableBg(dataLen, container) {
 	background.className = 'turntableColor';
 	console.log(background.style.backgroundImage)
 	
-	if (dataLen === 8) {
-		background.style.backgroundImage = "url('')";
+	
+	if (dataLen === 6) {
+		background.style.backgroundImage = "url('./img/bg_lottery_6.png')";
+	} else if (dataLen === 8) {
+		background.style.backgroundImage = "url('./img/bg_lottery_8.png')";
 	} else if (dataLen === 10) {
 		background.style.backgroundImage = "url('./img/bg_lottery_10.png')";
 	}
@@ -148,17 +146,34 @@ function getTurntableBg(dataLen, container) {
 }
 
 var lotteryBtn = document.querySelector('.turntableButton');
+var lotteryBtnImg = document.querySelector('.turntableButton img');
 var lotteryWrap = document.querySelector('.lottery-wrap');
 lotteryBtn.addEventListener('click', function() {
+	//禁用按鈕
+	lotteryBtnImg.style.pointerEvents = 'none';
 	var num = Math.floor(Math.random() * dataLen);
 	// 创建 Turntable 对象
 	var Lottery = Turntable.create();
+	
 	// 启动抽奖
 	Lottery.start(num, function(index) {
-		// 获取抽奖结果
-		result = lotteryWrap.querySelectorAll('span')[index].querySelector('i').textContent;
-		// 弹出抽奖结果
-		alert(result);
-		console.log('index', index, 'lottery-span', 'lottery-span' + (index + 1));
+		// // 获取抽奖结果
+		var resultElement = lotteryWrap.querySelectorAll('span')[index].querySelector('i');
+		console.log(resultElement)
+
+		resultElement.classList.add('scaleText');
+
+
+		console.log(result)
+		//添加箭頭動畫效果
+		setTimeout(function() {
+			document.querySelectorAll('.turntableArrow img').forEach(function(element) {
+				element.classList.add('arrowEnd');
+			});
+		}, 0);
 	});
 });
+
+
+
+// 輪盤點擊後只執行一次  找問題
