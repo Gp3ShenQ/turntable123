@@ -4,6 +4,11 @@
 	font-family: 'zAstoriaBold'
 	src: url('./img/font/zAstoriaBold.ttf') format("truetype")
 
+@font-face 
+	font-family: 'AstoriaRoman'
+	src: url('./img/font/AstoriaRoman.ttf') format("truetype")
+
+
 *
 	font-family: 'zAstoriaBold'
 
@@ -59,21 +64,44 @@
 body
 	margin: 0
 	padding: 0
+
+
+//輪盤區
 //燈箱背景遮罩
 .turntableAll   
 	position: fixed
 	+whsize(100%,100vh)
 .turntableMask
+	//暫時關掉
+	display: none
 	position: absolute
 	opacity: .6
 	background-color: #000
 	+whsize(100%,100%)
 
+//上方關閉開關
+.turntableClose
+	position: absolute
+	top: -42px
+	right: 0
+	border: solid 1px #E86259
+	border-radius: 100%	
+	background-color: #0D0C0A
+	cursor: pointer
+	+whsize(29px,29px)
+	p
+		font-size: 18px
+		font-weight: 400
+		font-family: AstoriaRoman
+		line-height: 0
+		margin: 16px 0 0 8px 
+		color: #E86259
+
 //燈箱背景圖片
 .turntableArea
+	//暫時關掉
+	display: none
 	position: relative
-	top: 0
-	left: 0
 	height: 100%
 .turntableBg
 	position: relative
@@ -153,9 +181,10 @@ body
 		text-shadow: 0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,
 		transform: rotateZ(-90deg)
 
+//中獎文字縮放效果
 .scaleText 
 	animation: scaleText .6s infinite
-
+//中間輪盤icon
 .turntableColor
 	background-repeat: no-repeat
 	background-position: center center
@@ -289,3 +318,26 @@ body
 	+whsize(18px,18px)
 	img
 		+whsize(100%,100%)
+
+
+//金額提示區
+.amountMask
+	position: fixed
+	position: absolute
+	opacity: .6
+	background-color: #000
+	+whsize(100%,100vh)
+
+.amountArea
+	border: solid 1px white
+	position: relative
+	+whsize(100%,100%)
+.goldLight
+	opacity: .9
+	+abCenter
+	+whsize(549px,571px)
+	img
+		+whsize(100%,100%)
+.goldBg
+	position: absolute
+	+abCenter

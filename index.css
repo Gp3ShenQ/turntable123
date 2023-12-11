@@ -2,6 +2,10 @@
   font-family: "zAstoriaBold";
   src: url("./img/font/zAstoriaBold.ttf") format("truetype");
 }
+@font-face {
+  font-family: "AstoriaRoman";
+  src: url("./img/font/AstoriaRoman.ttf") format("truetype");
+}
 * {
   font-family: "zAstoriaBold";
 }
@@ -97,6 +101,7 @@ body {
 }
 
 .turntableMask {
+  display: none;
   position: absolute;
   opacity: 0.6;
   background-color: #000;
@@ -104,10 +109,29 @@ body {
   height: 100%;
 }
 
+.turntableClose {
+  position: absolute;
+  top: -42px;
+  right: 0;
+  border: solid 1px #E86259;
+  border-radius: 100%;
+  background-color: #0D0C0A;
+  cursor: pointer;
+  width: 29px;
+  height: 29px;
+}
+.turntableClose p {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: AstoriaRoman;
+  line-height: 0;
+  margin: 16px 0 0 8px;
+  color: #E86259;
+}
+
 .turntableArea {
+  display: none;
   position: relative;
-  top: 0;
-  left: 0;
   height: 100%;
 }
 
@@ -435,4 +459,44 @@ body {
 .arrowIcon img {
   width: 100%;
   height: 100%;
+}
+
+.amountMask {
+  position: fixed;
+  position: absolute;
+  opacity: 0.6;
+  background-color: #000;
+  width: 100%;
+  height: 100vh;
+}
+
+.amountArea {
+  border: solid 1px white;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.goldLight {
+  opacity: 0.9;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 549px;
+  height: 571px;
+}
+.goldLight img {
+  width: 100%;
+  height: 100%;
+}
+
+.goldBg {
+  position: absolute;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }

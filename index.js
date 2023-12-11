@@ -1,16 +1,16 @@
 
-
+//轉盤資料包
 const data = [
-	{amount:'100.00'},
-	{amount:'200.00'},
-	{amount:'300.00'},
-	{amount:'400.00'},
-	{amount:'500.00'},
-	{amount:'600.00'},
-	{amount:'700.00'},
-	{amount:'800.00'},
-	{amount:'900.00'},
-	{amount:'1000.00'},
+	{'amount':'100.00'},
+	{'amount':'200.00'},
+	{'amount':'300.00'},
+	{'amount':'400.00'},
+	{'amount':'500.00'},
+	{'amount':'600.00'},
+	{'amount':'700.00'},
+	{'amount':'800.00'},
+	{'amount':'900.00'},
+	{'amount':'1000.00'},
 ];
 
 var _createClass = (function () { 
@@ -173,7 +173,3 @@ lotteryBtn.addEventListener('click', function() {
 		}, 0);
 	});
 });
-
-
-
-// 輪盤點擊後只執行一次  找問題
