@@ -673,6 +673,7 @@ body {
 }
 
 .questionMask {
+  display: none;
   position: absolute;
   opacity: 0.4;
   z-index: 3;
@@ -682,6 +683,7 @@ body {
 }
 
 .questionArea {
+  display: none;
   z-index: 3;
   position: absolute;
   width: 100%;
