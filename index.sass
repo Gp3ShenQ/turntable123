@@ -72,7 +72,6 @@
 @keyframes scaleText 
 	0% 
 		transform: scale(1) rotate(-90deg)
-		// text-shadow:  #730BF9
 	to
 		transform: scale(1.1) rotate(-90deg)
 		text-shadow: 0 0 5px #730BF9,0 0 5px #730BF9,0 0 5px #730BF9,0 0 5px #730BF9,0 0 5px #730BF9,0 0 5px #730BF9,0 0 5px #730BF9,0 0 5px #730BF9,
@@ -100,11 +99,6 @@ body
 	opacity: .6
 	background-color: #000
 	+whsize(100%,100%)
-
-.close
-	display: none
-.open
-	display: block
 
 //上方關閉開關
 .turntableClose
@@ -239,7 +233,7 @@ body
 .evenText
 	margin-top: 4px
 	p
-		font-family: Inter
+		font-family: arial
 		color: #FFEB31
 		+fontsize(18px)
 .evenBottom
@@ -256,7 +250,7 @@ body
 	margin-left: 3px
 	p
 		text-align: center
-		font-family: Inter
+		font-family: arial
 		line-height: 18px
 		color: #fff
 		+fontsize(18px)
@@ -294,7 +288,7 @@ body
 		font-style: normal
 		font-size: 24px
 		color: white
-		text-shadow: 0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,0px 0px 2px #730BF9,
+		text-shadow: 0px 0px 2px #730BF9, 0px 0px 2px #730BF9, 0px 0px 2px #730BF9, 0px 0px 2px #730BF9, 0px 0px 2px #730BF9, 0px 0px 2px #730BF9, 0px 0px 2px #730BF9,0px 0px 2px #730BF9, 0px 0px 2px #730BF9, 0px 0px 2px #730BF9, 0px 0px 2px #730BF9,
 		transform: rotateZ(-90deg)
 
 //中獎文字縮放效果
@@ -435,7 +429,7 @@ body
 //抽獎券問題解說
 .questionMask
 	//暫時關閉
-	display: none
+	// display: none
 	position: absolute
 	opacity: .4
 	z-index: 3
@@ -443,7 +437,7 @@ body
 	+whsize(100%,100%)
 .questionArea
 	//暫時關閉
-	display: none
+	// display: none
 	z-index: 3
 	position: absolute
 	+whsize(100%,100%)
@@ -473,7 +467,7 @@ body
 		color: #E86259
 		font-weight: 900
 		+fontsize(13px)
-		font-family: Inter
+		font-family: arial
 
 .questionText
 	margin: 10px 9px 10px
@@ -489,7 +483,7 @@ body
 
 //金額提示區
 .amountMask
-	display: none
+	// display: none
 	position: fixed
 	position: absolute
 	opacity: .8
@@ -497,48 +491,41 @@ body
 	+whsize(100%,100vh)
 
 .amountArea
-	display: none
+	// display: none
 	position: relative
 	+whsize(100%,100%)
 .goldLight
 	opacity: .6
 	+whsize(549px,571px)
 	+abCenter
-
 	img
 		animation: turn 6s linear infinite  
 		+whsize(100%,100%)
 .goldBg
 	+abCenter
+	+whsize(377px,377px)
 	img
-		+whsize(337px,337px)
+		+whsize(100%,100%)
 .goldData
-	// border: solid 2px white
 	position: absolute
 	display: flex
 	top: 0
 	justify-content: space-evenly
 	color: white
-	+whsize(100%,100%)
+	+whsize(319px,77px)
 	p
-		border: solid 1px
-		font-family: Inter
+		font-family: arial
+		font-style: italic
 		font-size: 64px
 		font-weight: 900
 		width: 100%
-		color: #FEF371
+		color: #FEDB43 
 		text-shadow: 2px 2px 0px #C55B1A
-		// background-clip: text
-		// -webkit-background-clip: text
-		// background: linear-gradient(180deg, #FEF371 0%, #FEDB43 100%)
-		// -webkit-text-fill-color: transparent
-		// &:nth-child(2)
-		// 	padding-left: 10px
-
 			
 .goldCoin
 	+abCenter
+	+whsize(460px,479px)
 	img
-		+whsize(460px,479px)
+		+whsize(100%,100%)
 
 	
