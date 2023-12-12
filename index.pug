@@ -10,6 +10,19 @@ html(lang="en")
 	body 
 		.turntableAll
 			//-燈箱背景遮罩
+			.questionMask
+			.questionArea
+				.questionPosition
+					.questionArrow
+					.questionBox 
+						.questionTop
+							p 抽獎券獲得條件
+						.questionText
+							ul
+								li 累計充值達 100 (含)以上及累計有效押分 100 (含)以上，可獲得抽獎券 x 1
+								li 累計充值達 500 (含)以上及累計有效押分 500 (含)以上，可獲得抽獎券 x 2
+
+
 			.turntableMask
 			//-燈箱背景圖片
 			.turntableArea
@@ -25,23 +38,66 @@ html(lang="en")
 						.turntableText 
 							p Spin to win 
 							p 500USDT
+					//-中間彩票與活動
+					.ticketEvenArea
+						.tickInner
+							.ticketLeft
+								.ticketInnerTop
+									.ticketImg
+										img(src="./img/icon_ticket.png", alt="")
+									.ticketText
+										p x4
+									.ticketQIcon
+										img(src="./img/QuestionCircleFill.svg", alt="")
+								.ticketInnerBottom
+									p 您已使用
+									p N 
+									p 張
+							.centerLine
+							.evenRight
+								.evenInner
+									.evenTop 
+										.evenBox
+											.evenIcon
+												img(src="./img//clock 1.svg", alt="")
+											.evenText
+												p 活動倒數
+									.evenBottom
+										.evenBox
+											.data 
+												p 2
+												p 天
+											.hour 
+												p 02
+												p :
+											.minute
+												p 10
+												p :
+											.second 
+												p 51
+
 					//-中間輪盤
-					.turntableMiddle
-						//-輪盤數字顯示
-						.lottery-wrap.png
-						//-外框
-						.turntableCircle
-							img(src="./img/spin_bg_line.png", alt="")  
-						//-閃燈
-						.turntableLight
-							img(src="./img/spin_light.png", alt="")
-							img(src="./img/spin_light1.png", alt="")
-						//-星星按鈕
-						.turntableButton
-							img(src="./img/btn_lottery.png", alt="")
-						//-箭頭
-						.turntableArrow
-							img(src="./img/icon_point.png", alt="")
+					.turntableMiddleArea 
+						.turntableLeftArrow
+						.turntableMiddle
+							//-輪盤數字顯示
+							.lottery-wrap.png
+							//-外框
+							.turntableCircle
+								img(src="./img/spin_bg_line.png", alt="")  
+							//-閃燈
+							.turntableLight
+								img(src="./img/spin_light.png", alt="")
+								img(src="./img/spin_light1.png", alt="")
+							//-星星按鈕
+							.turntableButton
+								img(src="./img/btn_lottery.png", alt="")
+							//-箭頭
+							.turntableArrow
+								img(src="./img/icon_point.png", alt="")
+						.turntableLeftArrow
+
+
 					//-中間按鈕
 					.turntableMiddleButton
 						.buttonBox
@@ -73,6 +129,9 @@ html(lang="en")
 							.bottomIcon
 								.arrowIcon 
 									img(src="./img/arrow 1icon_arrow.svg", alt="")
+			
+
+
 			.amountMask
 			.amountArea
 				.goldLight

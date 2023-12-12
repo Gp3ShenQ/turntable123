@@ -174,3 +174,22 @@ lotteryBtn.addEventListener('click', function() {
 		}, 0);
 	});
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+	// 獲取元素
+	var ticketQIcon = document.querySelector('.ticketQIcon');
+	var questionMask = document.querySelector('.questionMask');
+	var questionArea = document.querySelector('.questionArea');
+	// 添加點擊事件監聽器
+	ticketQIcon.addEventListener('click', function () {
+			// 顯示問題區域
+			questionMask.style.display = 'block';
+			questionArea.style.display = 'block';
+	});
+	questionArea.addEventListener('click',function(){
+		questionMask.style.display = 'none';
+		questionArea.style.display = 'none';
+	})
+});
+
+

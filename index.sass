@@ -10,16 +10,22 @@
 
 *
 	font-family: 'zAstoriaBold'
+	box-sizing: border-box
 
 
 @mixin whsize($num1, $num2) 
 	width: $num1
 	height: $num2
 
-@mixin flexCenter()
-	display: flex
-	align-items: center
-	justify-content: center
+@mixin fontsize($size)
+	font-size: $size
+	margin: 0
+
+@mixin fontsArial($size)
+	font-family: Arial
+	font-weight: 400
+	margin: 0
+	font-size: $size
 
 @mixin abCenter()
 	position: absolute
@@ -27,10 +33,21 @@
 	left: 50%
 	transform: translate(-50% , -50%)
 
-@mixin fontsArial($size)
-	font-family: Arial
-	font-weight: 400
-	font-size: $size
+@mixin flexsaCenter()
+	display: flex
+	align-items: center
+	justify-content: space-around
+
+@mixin flexseCenter()
+	display: flex
+	align-items: center
+	justify-content: space-evenly
+
+@mixin flexCenter()
+	display: flex
+	align-items: center
+	justify-content: center
+
 
 @keyframes light
 	0%
@@ -74,15 +91,20 @@ body
 //輪盤區
 //燈箱背景遮罩
 .turntableAll   
-	position: fixed
+	position: absolute
 	+whsize(100%,100vh)
 .turntableMask
 	//暫時關掉
-	display: none
+	// display: none
 	position: absolute
 	opacity: .6
 	background-color: #000
 	+whsize(100%,100%)
+
+.close
+	display: none
+.open
+	display: block
 
 //上方關閉開關
 .turntableClose
@@ -105,7 +127,7 @@ body
 //燈箱背景圖片
 .turntableArea
 	//暫時關掉
-	display: none
+	// display: none
 	position: relative
 	height: 100%
 .turntableBg
@@ -113,12 +135,12 @@ body
 	height: 100%	
 	+flexCenter
 	img
-		+whsize(430px,712px)
+		+whsize(430px,805px)
 
 //燈箱頂部圖片
 .turntableBox
 	+abCenter
-	+whsize(430px,712px)
+	+whsize(430px,805px)
 .turntableTop 
 	+whsize(100%,207px)
 	img
@@ -131,10 +153,9 @@ body
 	top: 0
 	left: 0
 	p
-		margin: 0
-		font-size: 56px
 		text-align: center
 		font-weight: 700
+		+fontsize(56px)
 		+whsize(294px,65px)
 		&:nth-child(1)
 			margin: 41px 68px 0 68px
@@ -150,10 +171,101 @@ body
 			-webkit-background-clip: text
 			-webkit-text-fill-color: transparent
 
+//中間彩票顯示
+.ticketEvenArea
+	margin-top: -22px
+	+flexCenter
+	+whsize(100%,52px)
+.tickInner
+	display: flex
+	+whsize(269px,100%)
+.ticketLeft
+	position: relative
+	+whsize(118px,100%)
+.ticketInnerTop
+	border: solid 1px #777
+	margin: 3px 0 0 14.5px
+	border-radius: 65px
+	+flexseCenter
+	+whsize(99px,29px)
+.ticketImg
+	position: absolute
+	top: 0
+	left: 0
+	+whsize(35px,35px)
+	img
+		+whsize(100%,100%)
+.ticketText
+	margin: 6px 0 0 27px
+	p
+		+fontsize(20px)
+		color: #E86259
+.ticketQIcon
+	cursor: pointer
+	+whsize(18px,18px)
+	img
+		+whsize(100%,100%)
+.ticketInnerBottom
+	+flexCenter
+	p
+		line-height: 24px
+		+fontsize(12px)
+		&:nth-child(odd)
+			color: #fff
+		&:nth-child(even)	
+			color: #E86259
+//中線
+.centerLine
+	background-color: #52514E
+	margin: 7.5px 15px 7.5px 15px
+	+whsize(1px,37px)
+//中間活動時間
+.evenRight
+	+whsize(100%,100%)
+.evenInner
+	background: linear-gradient(90deg, rgba(154, 20, 118, 0.00) 0%, #9A1476 46.88%, rgba(154, 20, 118, 0.00) 100%)
+	+whsize(123px,27px)
+.evenTop
+	margin: 2px 13px
+	+whsize(97px,22px)
+.evenBox
+	display: flex
+	+whsize(100%,100%)
+.evenIcon
+	margin: 12px 4px 4px 0
+	width: 21px
+	img
+		+whsize(100%,100%)
+.evenText
+	margin-top: 4px
+	p
+		font-family: Inter
+		color: #FFEB31
+		+fontsize(18px)
+.evenBottom
+	display: flex
+	justify-content: center
+	margin: 6px 0 0 10px
+	+whsize(105px,22px)
+.evenBox
+	display: flex
+	align-items: center
+	justify-content: center
+.data,.hour,.minute,.second
+	display: flex
+	margin-left: 3px
+	p
+		text-align: center
+		font-family: Inter
+		line-height: 18px
+		color: #fff
+		+fontsize(18px)
+
+
 //中間輪盤
 .turntableMiddle
 	position: relative
-	margin: -35px 42px 0 49px
+	margin: 20px 42px 0 49px
 	+whsize(339px,339px)
 	img
 		+abCenter
@@ -172,7 +284,6 @@ body
 		-moz-transform-origin: 50% 100%
 		-ms-transform-origin: 50% 100%
 		transform-origin: 50% 100%
-
 	i 
 		display: block
 		margin-top: 14px
@@ -289,13 +400,11 @@ body
 .nameData
 	p
 		color: #8B99BB
-		margin: 0
 		+fontsArial(16px)
 .prizeData
 	display: flex
 	margin-top: 7px
 	p
-		margin: 0
 		+fontsArial(14px)
 		&:nth-child(1)
 			color: #777
@@ -307,7 +416,6 @@ body
 	display: flex
 	margin-top: 6px
 	p
-		margin: 0
 		+fontsArial(14px)
 		&:nth-child(1)
 			color: #777
@@ -324,10 +432,64 @@ body
 	img
 		+whsize(100%,100%)
 
+//抽獎券問題解說
+.questionMask
+	//暫時關閉
+	display: none
+	position: absolute
+	opacity: .4
+	z-index: 3
+	background-color: #000
+	+whsize(100%,100%)
+.questionArea
+	//暫時關閉
+	display: none
+	z-index: 3
+	position: absolute
+	+whsize(100%,100%)
+.questionPosition
+	+abCenter
+	+whsize(430px,805px)
+.questionArrow
+	position: absolute
+	border: solid 12px 
+	margin: 198px 0 0 162px
+	border-color: transparent transparent #353432 transparent 
+	+whsize(0px,0px)
+.questionBox
+	position: absolute
+	left: 30px
+	top: 220px
+	z-index: 4
+	color: white
+	+whsize(348px,124px)
+.questionBox 
+	border-radius: 10px
+	background-color: #353432
+	+whsize(348px,124px)
+.questionTop
+	padding: 9px 0 0 13px
+	p
+		color: #E86259
+		font-weight: 900
+		+fontsize(13px)
+		font-family: Inter
+
+.questionText
+	margin: 10px 9px 10px
+	+whsize(330px,79px)
+	ul
+		margin: 0 
+		padding-left: 15px
+		list-style-type: decimal
+	li
+		color: #777
+		+fontsize(13px)
+
 
 //金額提示區
 .amountMask
-	// display: none
+	display: none
 	position: fixed
 	position: absolute
 	opacity: .8
@@ -335,7 +497,7 @@ body
 	+whsize(100%,100vh)
 
 .amountArea
-	// display: none
+	display: none
 	position: relative
 	+whsize(100%,100%)
 .goldLight
@@ -344,32 +506,39 @@ body
 	+abCenter
 
 	img
-		animation: turn 10s linear infinite  
+		animation: turn 6s linear infinite  
 		+whsize(100%,100%)
 .goldBg
 	+abCenter
+	img
+		+whsize(337px,337px)
 .goldData
-	border: solid 2px white
+	// border: solid 2px white
 	position: absolute
 	display: flex
 	top: 0
+	justify-content: space-evenly
 	color: white
 	+whsize(100%,100%)
 	p
+		border: solid 1px
 		font-family: Inter
 		font-size: 64px
-		// font-style: italic
 		font-weight: 900
+		width: 100%
 		color: #FEF371
-		// line-height: normal
-		// background: linear-gradient(180deg, #FEF371 0%, #FEDB43 100%)
-		background-clip: text
-
 		text-shadow: 2px 2px 0px #C55B1A
+		// background-clip: text
 		// -webkit-background-clip: text
+		// background: linear-gradient(180deg, #FEF371 0%, #FEDB43 100%)
 		// -webkit-text-fill-color: transparent
+		// &:nth-child(2)
+		// 	padding-left: 10px
+
+			
 .goldCoin
 	+abCenter
 	img
-		+whsize(549px,571px)
+		+whsize(460px,479px)
+
 	
