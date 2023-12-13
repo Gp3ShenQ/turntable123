@@ -41,9 +41,6 @@ function _classCallCheck(instance, Constructor) {
 	var Turntable = (function () {
 		function Turntable(opts) {
 			_classCallCheck(this, Turntable);
-			function getRandom(min,max){
-				return Math.random()*(max-min+1)+min
-			} // 旋轉偏移亂數生成
 			this.opts = Object.assign({
 				target: '.lottery-wrap', // 旋轉對象
 				easing: 'easeInOutSine', // anime.js 動畫曲線
@@ -146,6 +143,7 @@ function getTurntableBg(dataLen, container) {
 	container.appendChild(background);
 }
 
+
 var lotteryBtn = document.querySelector('.turntableButton');
 var lotteryBtnImg = document.querySelector('.turntableButton img');
 var lotteryWrap = document.querySelector('.lottery-wrap');
@@ -175,21 +173,44 @@ lotteryBtn.addEventListener('click', function() {
 	});
 });
 
-document.addEventListener('DOMContentLoaded', function () {
+
+window.addEventListener('DOMContentLoaded', function () {
 	// 獲取元素
+	var turntableAll = document.querySelector('.turntableAll');
+	var turntableClose = document.querySelector('.turntableClose');
 	var ticketQIcon = document.querySelector('.ticketQIcon');
 	var questionMask = document.querySelector('.questionMask');
 	var questionArea = document.querySelector('.questionArea');
+	var goldClose = document.querySelector('.goldClose')
+	// var amountMask = document.querySelector('.amountMask')
+	// var amountArea = document.querySelector('.amountArea')
+
 	// 添加點擊事件監聽器
+	turntableClose.addEventListener('click',function(){
+		turntableAll.style.display = 'none'
+	})
+
 	ticketQIcon.addEventListener('click', function () {
-			// 顯示問題區域
-			questionMask.style.display = 'block';
-			questionArea.style.display = 'block';
+		questionMask.style.display = 'block';
+		questionArea.style.display = 'block';
 	});
 	questionArea.addEventListener('click',function(){
 		questionMask.style.display = 'none';
 		questionArea.style.display = 'none';
 	})
+
+	goldClose.addEventListener('click',function(){
+		turntableAll.style.display = 'none'
+	})
+
+
+
+
+
+
+
+
+
 });
 
 

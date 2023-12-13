@@ -90,16 +90,26 @@ body
 //輪盤區
 //燈箱背景遮罩
 .turntableAll   
-	position: absolute
+	position: fixed
+	// display: none
 	+whsize(100%,100vh)
 .turntableMask
-	//暫時關掉
-	// display: none	
+	// display: none
 	position: absolute
 	opacity: .6
 	background-color: #000
 	+whsize(100%,100%)
-
+//燈箱背景圖片
+.turntableArea
+	// display: none
+	position: relative
+	height: 100%
+.turntableBg
+	position: relative
+	height: 100%	
+	+flexCenter
+	img
+		+whsize(430px,805px)
 //上方關閉開關
 .turntableClose
 	position: absolute
@@ -117,20 +127,6 @@ body
 		line-height: 0
 		margin: 16px 0 0 8px 
 		color: #E86259
-
-//燈箱背景圖片
-.turntableArea
-	//暫時關掉
-	// display: none
-	position: relative
-	height: 100%
-.turntableBg
-	position: relative
-	height: 100%	
-	+flexCenter
-	img
-		+whsize(430px,805px)
-
 //燈箱頂部圖片
 .turntableBox
 	+abCenter
@@ -140,7 +136,6 @@ body
 	img
 		top: 0
 		+whsize(430px,207px)
-
 //燈頂部文字
 .turntableText
 	position: absolute
@@ -164,7 +159,6 @@ body
 			background-clip: text
 			-webkit-background-clip: text
 			-webkit-text-fill-color: transparent
-
 //中間彩票顯示
 .ticketEvenArea
 	margin-top: -22px
@@ -255,11 +249,23 @@ body
 		color: #fff
 		+fontsize(18px)
 
-
 //中間輪盤
+.turntableMiddleArea
+	position: relative
+	display: flex
+.turntableLeftArrow
+	position: absolute
+	left: 16px
+	top: 50%	
+	cursor: pointer
+.turntableRightArrow
+	position: absolute
+	right: 16px
+	top: 50%
+	cursor: pointer
 .turntableMiddle
 	position: relative
-	margin: 20px 42px 0 49px
+	margin: 20px 45px 0 45px
 	+whsize(339px,339px)
 	img
 		+abCenter
@@ -323,7 +329,7 @@ body
 //中間按鈕
 .turntableMiddleButton
 	flex-shrink: 0
-	margin: 17px 85px 0 104px
+	margin: 17px 94px 0 94px
 	cursor: pointer
 	+whsize(241px,47px)
 .buttonBox
@@ -480,18 +486,16 @@ body
 		color: #777
 		+fontsize(13px)
 
-
 //金額提示區
 .amountMask
-	// display: none
+	display: none
 	position: fixed
 	position: absolute
 	opacity: .8
 	background-color: #000
 	+whsize(100%,100vh)
-
 .amountArea
-	// display: none
+	display: none
 	position: relative
 	+whsize(100%,100%)
 .goldLight
@@ -506,26 +510,76 @@ body
 	+whsize(377px,377px)
 	img
 		+whsize(100%,100%)
+.goldInner
+	position: absolute
+	top: 0
+	left: 0
+	+whsize(100%,100%)
 .goldData
 	position: absolute
 	display: flex
-	top: 0
+	top: 35px
+	left: 50%
+	transform: translateX(-50%)
 	justify-content: space-evenly
 	color: white
 	+whsize(319px,77px)
 	p
 		font-family: arial
 		font-style: italic
-		font-size: 64px
 		font-weight: 900
 		width: 100%
 		color: #FEDB43 
 		text-shadow: 2px 2px 0px #C55B1A
+		+fontsize(64px)
 			
 .goldCoin
-	+abCenter
+	position: absolute
+	top: 50%
+	transform: translate(-8% , -50%)
 	+whsize(460px,479px)
 	img
 		+whsize(100%,100%)
-
-	
+.goldClose
+	position: absolute
+	top: -15px
+	right: 35px
+	cursor: pointer
+	+whsize(29px,29px)
+	img
+		+whsize(100%,100%)
+.goldInnerText
+	+abCenter
+	white-space: nowrap
+	p
+		color: #fff
+		font-family: arial
+		font-weight: 700
+		+fontsize(20px)
+.goldTips
+	position: absolute
+	white-space: nowrap
+	top: 60%
+	left: 50%
+	transform: translateX(-50%)
+	p
+		color: #777
+		font-family: arial
+		+fontsize(14px)
+.goldPlayButton
+	position: absolute
+	top: 279px
+	left: 50%
+	transform: translateX(-50%)
+	+whsize(241px,47px)
+.goldButton
+	cursor: pointer
+	background-color: #CA1681
+	border-radius: 9px
+	+whsize(100%,100%)
+	p
+		color: #fff
+		text-align: center
+		font-weight: 700
+		line-height: 47px
+		+fontsize(14px)
