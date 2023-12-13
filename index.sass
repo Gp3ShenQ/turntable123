@@ -48,7 +48,6 @@
 	align-items: center
 	justify-content: center
 
-
 @keyframes light
 	0%
 		opacity: 0
@@ -82,7 +81,78 @@
 	to
 		transform: rotate(360deg)
 
+@keyframes turntableTransitionsClose
+	0%
+		+abCenter
+		+whsize(100%,100%)
+		opacity: .6
+	to
+		+abCenter
+		+whsize(0%,0%)
+		opacity: .2
+		display: none
 
+@keyframes goldTrnasitionOpen
+	0%
+		// display: block
+		opacity: .1
+		+whsize(10%,10%)
+	to
+		opacity: 1
+		+whsize(60%,60%)
+
+@keyframes goldCoinStyle
+	0%
+		+whsize(10px,10px)
+	80%
+		+whsize(506px,527px)
+	to
+		+whsize(460px,479px)
+
+@keyframes handUp
+	0%
+		top: 0
+		left: 0px
+		transform: scale(1) rotate(0deg)
+	20%
+		top: -50px
+		height: 80px
+		width: 70px
+		transform: rotate(15deg)
+	30%
+		top: 0
+		left: 5px
+		height: 60px
+		width: 60px
+		transform: scale(1) rotate(-4deg)
+	35%
+		top: 0
+		left: 5px
+		transform: scale(1) rotate(0deg)
+	to
+		top: 0
+		left: 5px
+		transform: scale(1) rotate(0deg)
+
+@keyframes handShadowUp
+	0%
+		transform: scale(1)
+	20%
+		transform: scale(1.3)
+	30%
+		transform: scale(1)
+
+	100%
+		transform: scale(1)
+
+.turntableTransitionsClose
+	animation: turntableTransitionsClose .5s both
+
+.goldTransitionOpen
+	animation: goldTrnasitionOpen .3s .2s both
+
+.goldCoinStyle
+	animation: goldCoinStyle 1s both
 body
 	margin: 0
 	padding: 0
@@ -103,7 +173,10 @@ body
 .turntableArea
 	// display: none
 	position: relative
+	width: 100%
 	height: 100%
+	z-index: 30
+	overflow: hidden
 .turntableBg
 	position: relative
 	height: 100%	
@@ -271,10 +344,10 @@ body
 		+abCenter
 .lottery-wrap
 	position: relative
-	z-index: 1
+	z-index: 31
 	+whsize(100%,100%)
 	span 
-		z-index: 2
+		z-index: 32
 		box-sizing: border-box
 		position: absolute
 		top: 39px
@@ -308,23 +381,50 @@ body
 	+abCenter
 .turntableButton
 	img
-		z-index: 2
+		z-index: 32
 		cursor: pointer
 .turntableArrow
 	img
-		z-index: 2
+		z-index: 32
 		top: 12px
 		&.arrowEnd
 			transform: scale(1.2)
 			animation: arrowEnd 1s infinite
 .turntableCircle
 	img
-		z-index: 2
+		z-index: 32
 .turntableLight
 	img
-		z-index: 2
+		z-index: 32
 		&:nth-child(2)
 			animation: light .5s infinite
+//手指and手影
+.turntableHand
+	position: absolute
+	top: 55%
+	left: 55%
+	z-index: 32
+	pointer-events: none
+	.handShadow
+		position: absolute
+		top: -25px
+		left: -30px
+		+whsize(60px,60px)
+		img
+			animation: handShadowUp 2s infinite
+			transform-origin: bottom right
+			+whsize(100%,100%)
+	.hand 
+		// display: none
+		position: absolute
+		// top: 0
+		// left: 5px
+		+whsize(60px,60px)
+		img
+			animation: handUp 2s infinite
+			transform-origin: bottom right
+			+whsize(100%,100%)
+
 
 //中間按鈕
 .turntableMiddleButton
@@ -438,13 +538,13 @@ body
 	display: none
 	position: absolute
 	opacity: .4
-	z-index: 3
+	z-index: 33
 	background-color: #000
 	+whsize(100%,100%)
 .questionArea
 	//暫時關閉
 	display: none
-	z-index: 3
+	z-index: 33
 	position: absolute
 	+whsize(100%,100%)
 .questionPosition
@@ -460,7 +560,7 @@ body
 	position: absolute
 	left: 30px
 	top: 220px
-	z-index: 4
+	z-index: 34
 	color: white
 	+whsize(348px,124px)
 .questionBox 
@@ -487,17 +587,13 @@ body
 		+fontsize(13px)
 
 //金額提示區
-.amountMask
-	display: none
-	position: fixed
-	position: absolute
-	opacity: .8
-	background-color: #000
-	+whsize(100%,100vh)
 .amountArea
-	display: none
-	position: relative
-	+whsize(100%,100%)
+	overflow: hidden
+	opacity: .1
+	+abCenter
+	+whsize(10%,10%)
+	// animation: goldTrnasitionOpen .3s both
+//光芒
 .goldLight
 	opacity: .6
 	+whsize(549px,571px)
@@ -518,7 +614,7 @@ body
 .goldData
 	position: absolute
 	display: flex
-	top: 35px
+	top: 55px
 	left: 50%
 	transform: translateX(-50%)
 	justify-content: space-evenly
@@ -531,19 +627,17 @@ body
 		width: 100%
 		color: #FEDB43 
 		text-shadow: 2px 2px 0px #C55B1A
-		+fontsize(64px)
+		+fontsize(54px)
 			
 .goldCoin
-	position: absolute
-	top: 50%
-	transform: translate(-8% , -50%)
-	+whsize(460px,479px)
+	+abCenter
+	+whsize(10px,10px)
 	img
 		+whsize(100%,100%)
 .goldClose
 	position: absolute
-	top: -15px
-	right: 35px
+	top: -68px
+	right: -10px
 	cursor: pointer
 	+whsize(29px,29px)
 	img

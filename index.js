@@ -1,16 +1,16 @@
 
 //轉盤資料包
 const data = [
-	{'amount':'100.00', 'Currency':'BNB'},
-	{'amount':'200.00', 'Currency':'BUSD'},
-	{'amount':'300.00', 'Currency':'BTC'},
-	{'amount':'400.00', 'Currency':'ETH'},
-	{'amount':'500.00', 'Currency':'DOGE'},
-	{'amount':'600.00', 'Currency':'SOL'},
-	{'amount':'700.00', 'Currency':'AVAX'},
-	{'amount':'800.00', 'Currency':'LUNA'},
-	{'amount':'900.00', 'Currency':'SHIB'},
-	{'amount':'1000.00', 'Currency':'ADA'},
+	{'amount':'10.00', 'currency':'BRL'},
+	{'amount':'20.00', 'currency':'BRL'},
+	{'amount':'30.00', 'currency':'BRL'},
+	{'amount':'40.00', 'currency':'BRL'},
+	{'amount':'50.00', 'currency':'BRL'},
+	{'amount':'60.00', 'currency':'BRL'},
+	{'amount':'70.00', 'currency':'BRL'},
+	{'amount':'80.00', 'currency':'BRL'},
+	{'amount':'90.00', 'currency':'BRL'},
+	{'amount':'101.00', 'currency':'BRL'},
 ];
 
 
@@ -130,8 +130,7 @@ function getTurntableBg(dataLen, container) {
 	const background = document.createElement('div');
 	background.className = 'turntableColor';
 	console.log(background.style.backgroundImage)
-	
-	
+	//背景增加條件設置
 	if (dataLen === 6) {
 		background.style.backgroundImage = "url('./img/bg_lottery_6.png')";
 	} else if (dataLen === 8) {
@@ -143,53 +142,90 @@ function getTurntableBg(dataLen, container) {
 	container.appendChild(background);
 }
 
-
 var lotteryBtn = document.querySelector('.turntableButton');
 var lotteryBtnImg = document.querySelector('.turntableButton img');
 var lotteryWrap = document.querySelector('.lottery-wrap');
+var turntableArea = document.querySelector('.turntableArea')
+var amountArea = document.querySelector('.amountArea')
+var handShow = document.querySelector('turntableHand')
+var resultElement;
 lotteryBtn.addEventListener('click', function() {
+	
 	//禁用按鈕
 	lotteryBtnImg.style.pointerEvents = 'none';
 	var num = Math.floor(Math.random() * dataLen);
 	// 创建 Turntable 对象
 	var Lottery = Turntable.create();
-	
 	// 启动抽奖
 	Lottery.start(num, function(index) {
 		// // 获取抽奖结果
 		var resultElement = lotteryWrap.querySelectorAll('span')[index].querySelector('i');
-		console.log(resultElement)
-
 		resultElement.classList.add('scaleText');
-
-
-		console.log(result)
 		//添加箭頭動畫效果
 		setTimeout(function() {
 			document.querySelectorAll('.turntableArrow img').forEach(function(element) {
 				element.classList.add('arrowEnd');
 			});
-		}, 0);
+		},0);
+		var resultNumber = resultElement.innerText;
+		
+		var amountElement = document.querySelector('.amount p');
+		var resultCurrency = data[data.length - 1].currency;
+		var currencyElement = document.querySelector('.Currency p');
+		var goldCoin = document.querySelector('.goldCoin')
+		// 設定起始值
+		var currentNumber = 0;
+		// 設定結束值，這裡以 resultNumber 為例
+		var endNumber = parseInt(resultNumber, 10);
+    // 下判斷，使用 resultNumber
+    if (resultNumber !== null && resultNumber !== '') {
+			// 判斷 resultElement.innerText 不等於空值時，添加 turntableTransitionsClose 這個 class
+      setTimeout(function() {
+				turntableArea.classList.add('turntableTransitionsClose');
+				amountArea.classList.add('goldTransitionOpen')
+				goldCoin.classList.add('goldCoinStyle')
+				
+				amountElement.textContent = resultNumber;
+				turntableArea.classList.add('turntableTransitionsClose');
+				
+				var updateInterval = setInterval(function() {
+					// 更新數字
+					amountElement.textContent = currentNumber.toFixed(2); // 顯示兩位小數
+					currencyElement.textContent = resultCurrency;
+					// 如果達到結束值，清除 setInterval
+					if (currentNumber >= endNumber) {
+						clearInterval(updateInterval);
+					} else {
+						// 增加數字
+						// currentNumber += 1; // 每次增加的數字，可以根據需要調整
+						currentNumber = Math.min(currentNumber + 1, endNumber);
+					}
+				}, 30);
+			}, 3000);
+    }
 	});
 });
 
-
 window.addEventListener('DOMContentLoaded', function () {
 	// 獲取元素
+	var lotteryBtn = document.querySelector('.turntableButton img');
+  var turntableHand = document.querySelector('.turntableHand');
 	var turntableAll = document.querySelector('.turntableAll');
 	var turntableClose = document.querySelector('.turntableClose');
 	var ticketQIcon = document.querySelector('.ticketQIcon');
 	var questionMask = document.querySelector('.questionMask');
 	var questionArea = document.querySelector('.questionArea');
 	var goldClose = document.querySelector('.goldClose')
-	// var amountMask = document.querySelector('.amountMask')
-	// var amountArea = document.querySelector('.amountArea')
 
+	lotteryBtn.addEventListener('click', function () {
+    // 在按钮点击后隐藏 turntableHand
+    turntableHand.style.display = 'none';
+
+  });
 	// 添加點擊事件監聽器
 	turntableClose.addEventListener('click',function(){
 		turntableAll.style.display = 'none'
 	})
-
 	ticketQIcon.addEventListener('click', function () {
 		questionMask.style.display = 'block';
 		questionArea.style.display = 'block';
@@ -198,19 +234,7 @@ window.addEventListener('DOMContentLoaded', function () {
 		questionMask.style.display = 'none';
 		questionArea.style.display = 'none';
 	})
-
 	goldClose.addEventListener('click',function(){
 		turntableAll.style.display = 'none'
 	})
-
-
-
-
-
-
-
-
-
 });
-
-
