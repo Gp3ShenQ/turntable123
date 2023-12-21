@@ -1,7 +1,7 @@
 
 //轉盤資料包
 const data = [
-	{'amount':'10.00', 'currency':'BRL'},
+	{'amount':'i phone 12pro max', 'currency':'BRL'},
 	{'amount':'20.00', 'currency':'BRL'},
 	{'amount':'30.00', 'currency':'BRL'},
 	{'amount':'40.00', 'currency':'BRL'},

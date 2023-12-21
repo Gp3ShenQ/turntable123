@@ -347,6 +347,7 @@ body
 	z-index: 31
 	+whsize(100%,100%)
 	span 
+		border: solid 1px white
 		z-index: 32
 		box-sizing: border-box
 		position: absolute
@@ -358,14 +359,18 @@ body
 		-ms-transform-origin: 50% 100%
 		transform-origin: 50% 100%
 	i 
-		display: block
-		margin-top: 14px
+		display: flex
+		justify-content: center
+		align-items: center
+		border: solid 1px white
+		// display: block
+		margin-top: -17px
 		width: 100%
-		height: 30px
-		line-height: 40px
+		height:30px
+		// line-height: 35px
 		font-weight: 100
 		font-style: normal
-		font-size: 24px
+		font-size: 18px
 		color: white
 		text-shadow: 0px 0px 2px #730BF9, 0px 0px 2px #730BF9, 0px 0px 2px #730BF9, 0px 0px 2px #730BF9, 0px 0px 2px #730BF9, 0px 0px 2px #730BF9, 0px 0px 2px #730BF9,0px 0px 2px #730BF9, 0px 0px 2px #730BF9, 0px 0px 2px #730BF9, 0px 0px 2px #730BF9,
 		transform: rotateZ(-90deg)
@@ -377,8 +382,12 @@ body
 .turntableColor
 	background-repeat: no-repeat
 	background-position: center center
-	+whsize(100%,100%)
+	+whsize(339px,339px)
 	+abCenter
+	img
+		width: 100%
+		height: 100%
+	
 .turntableButton
 	img
 		z-index: 32
@@ -453,6 +462,7 @@ body
 	+whsize(396px,99px)
 //底部箱左側資料
 .bottomLeft
+	// border: solid 1px white
 	position: relative
 	flex-shrink: 0
 	margin: 3px 5px 4px 5px
@@ -460,7 +470,9 @@ body
 	background: #191A1B
 	+whsize(161px,92px)
 	p
+		// border: solid 1px white
 		&:nth-child(1)
+			// border: solid 1px white
 			font-size: 16px
 			font-weight: 700
 			text-align: center
@@ -468,6 +480,7 @@ body
 			color: #777777
 			+whsize(118px,19px)
 		&:nth-child(2)
+			// border: solid 1px white
 			text-align: center
 			color: #E9D317
 			font-size: 18px
@@ -485,6 +498,7 @@ body
 .bottomAvatar
 	width: 44px
 	background: #191A1B
+	// background-color: #fff
 .avatarBox
 	border-radius: 100%
 	overflow: hidden
@@ -497,6 +511,7 @@ body
 	width: 152px
 	background-color: #191A1B
 	padding: 13px 0 0 14px 
+	// background-color: #fff
 .nameData
 	p
 		color: #8B99BB
@@ -524,6 +539,7 @@ body
 //右側icon
 .bottomIcon
 	background: #191A1B
+	// background-color: #fff
 	width: 28px
 .arrowIcon
 	margin: 38px 6px 0 0 
@@ -677,3 +693,36 @@ body
 		font-weight: 700
 		line-height: 47px
 		+fontsize(14px)
+
+@media screen and (max-width: 768px)
+	.turntableBottom
+		display: block
+		margin: 10px 15px 0 33px
+		+whsize(365px,110px)
+
+	.bottomLeft
+		display: flex
+		border-radius: 5px 5px 0 0
+		border-bottom: solid 1px white
+		+whsize(355px,20px)
+		p
+			&:nth-child(1)
+				width: 40%
+				margin-top: 0
+			&:nth-child(2)
+				width: 60%
+	.bottomRight
+		+whsize(359px,75px)
+	.bottomAvatar
+		width: 84px
+		margin-left: 5px
+		border-radius: 5px 0 0 5px
+	.avatarBox
+		margin: 13px 0 0 20px
+		+whsize(50px,50px)
+	.bottomData 
+		width: 250px
+		padding: 5px 0 0 30px 
+	.arrowIcon
+		margin: 28px 6px 0 0 
+
